@@ -11,6 +11,8 @@ Although Go has OO capabilities as well (there's no concept of `class` but objec
 
 Two main folders are present: `cmd`, that contains our main Go file that will start the program, and `internal`, that contains two packages we don't want to be exported outside of the application (hence they residing inside of the `internal` folder). The first package is called `repo` and is, well, a repo of sorts; the only thing it does now is return a message. The other package, `user`, is responsible to orchestrating the user operations in our program. This package also defines a `userStorer` interface, that `repo` knows nothing about, but that it also satisfies implicitly. This way we can use `userStorer` inside the `user` package to add a layer of abstraction between `service` and `repo`. From a program perspective of using concrete types (check `main.go` inside the `cmd` folder) nothing changes, but if you open `service_test.go` in the `user` package, you can see how we can leverage this implicitly satisfied interface to unit-test our service (using table tests, my favorite kind!)
 
+The `makefile` also has some interesting Go commands that can be helpful. If you don't know what makefiles are about, give it a go (haha), they will make your life much easier!
+
 ### Plans for the future
 
 I don't know if I'm ever gonna extend this repository. This is mostly used to remind me of some patterns as well, so I might add those patterns to it in the future; in its current state, though, I believe it already accomplishes the mission of making engineers from other backgrounds understand how powerful and flexible the interface model of Go is.
