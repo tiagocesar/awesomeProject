@@ -1,0 +1,21 @@
+package repo
+
+import (
+	"fmt"
+)
+
+type User struct {
+	Id    int    `json:"id"`
+	Name  string `json:"name"`
+	Email string `json:"Email"`
+}
+
+type UserRepo struct{}
+
+func NewUserRepo() *UserRepo {
+	return &UserRepo{}
+}
+
+func (r *UserRepo) AddUser(u User) string {
+	return fmt.Sprintf("The user %s with email %s was successfully created", u.Name, u.Email)
+}
