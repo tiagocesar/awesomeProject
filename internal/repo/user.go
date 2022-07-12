@@ -10,6 +10,7 @@ type User struct {
 	Email string `json:"Email"`
 }
 
+// UserRepo - In a real-world situation, this struct would have types like "db" for SQL operations
 type UserRepo struct{}
 
 func NewUserRepo() *UserRepo {
